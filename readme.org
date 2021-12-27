@@ -1,0 +1,11 @@
+#+latex_class: cn-article
+#+title: 贪吃蛇 - MVVM - Kotlin
+#+author: deepwaterooo
+
+* Introduciton
+- project was inspired and initialized by youtube video: https://www.youtube.com/watch?v=LMpJ35tndUw, and also Mitch's MVVM introduction: https://www.youtube.com/watch?v=lcAtXpyn6DY&t=130s
+- This is a very small project, try to implement MVVM design and practice Kotlin language, using api 30 AndroidX. 
+- So far, only configured project environment ready, game flow not working, barely working yet. 
+- so far, only viewBinding used, but to make it through, may apply databinding if needed.
+- But will work on these bugs to make it a small tiny game.
+
