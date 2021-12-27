@@ -2,7 +2,6 @@ package com.me.snake.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-//import java.util.*
 import kotlin.concurrent.fixedRateTimer
 import kotlin.random.Random
 
@@ -31,7 +30,7 @@ class SnakeViewModel : ViewModel () {
         food = nextFood().also {
             fpos.value = it
         }
-        fixedRateTimer("timer", true, 500, 1000/30) {
+        fixedRateTimer("timer", true, 500, 1000/5) {
             val pos = body.first().copy().apply {
                 when (dir) {
                     Dir.LEFT -> i--
@@ -45,15 +44,18 @@ class SnakeViewModel : ViewModel () {
                 }
             }
             body.add(0, pos)
+            println(pos.i)
+            println(pos.j)
             if (pos != food) body.removeLast() 
             else {
                 food = nextFood().also {
-                    fpos.postValue(it) // 双向数据绑定，触发视图更新
+                    fpos.postValue(it) // 发布更新
                 }
                 score++ // databinding item
-            }
-        }
-        snake.postValue(body)
+                scoreData.postValue(score) // 发布更新
+            } // setValue()只能在主线程中调用，postValue()可以在任何线程中调用
+            snake.postValue(body) // LiveData.postValue()可以在任意线程中执行, 抄代码抄错了吧，哭死。。。。。。
+        } 
     }
     fun nextFood(): Pos {
         val pos = Pos(Random.nextInt(size), Random.nextInt(size)) // 随机生成食物的下一个位置

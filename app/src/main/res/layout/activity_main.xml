@@ -13,76 +13,52 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
   <!-- tools:context=".SnakeActivity"> -->
 
-  <!-- android:id="@+id/sgv_snake" -->
-  <!-- <SurfaceView -->
-  <!--     android:id="@+id/game" -->
-  <!--     android:layout_width="729dp" -->
-  <!--     android:layout_height="963dp" -->
-  <!--     android:background="@android:color/transparent" -->
-  <!--     app:layout_constraintStart_toStartOf="parent" -->
-  <!--     app:layout_constraintTop_toTopOf="parent" /> -->
-  <!--     <!-\- android:layout_width="match_parent" -\-> -->
-  <!--     <!-\- android:layout_height="match_parent" -\-> -->
-  <!--     <!-\- android:visibility="gone" /> -\-> -->
 
-  <!-- <View -->
-  <!--     android:id="@+id/game" -->
-  <!--     android:layout_width="wrap_content" -->
-  <!--     android:layout_height="wrap_content" -->
-  <!--     android:layout_marginStart="8dp" -->
-  <!--     android:layout_marginTop="8dp" -->
-  <!--     android:layout_marginEnd="8dp" -->
-  <!--     android:layout_marginBottom="160dp" -->
+  <!-- android:background="@android:color/transparent" -->
+  <!-- <com.me.snake.view.SnakeView -->
+  <!--     android:id="@+id/sbv_snake" -->
+  <!--     android:layout_width="878dp" -->
+  <!--     android:layout_height="1042dp" -->
   <!--     app:layout_constraintBottom_toBottomOf="parent" -->
   <!--     app:layout_constraintEnd_toEndOf="parent" -->
   <!--     app:layout_constraintStart_toStartOf="parent" -->
-  <!--     app:layout_constraintTop_toTopOf="parent" -->
-  <!--     app:layout_constraintVertical_bias="1.0" /> -->
+  <!--     app:layout_constraintTop_toTopOf="parent" /> -->
 
   <com.me.snake.view.GameView
       android:id="@+id/game"
       android:layout_width="729dp"
       android:layout_height="963dp"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="8dp"
-      android:layout_marginEnd="8dp"
-      android:background="@android:color/transparent"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.48"
+      app:layout_constraintHorizontal_bias="0.396"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
-
-  <com.me.snake.view.SnakeView
-      android:id="@+id/sbv_snake"
-      android:layout_width="878dp"
-      android:layout_height="1042dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
+  
   <LinearLayout
+      android:id="@+id/linearLayout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="4dp"
       android:gravity="center_vertical"
       android:orientation="horizontal"
-      app:layout_constraintBottom_toBottomOf="parent">
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/tv_snake_start"
-        android:background="@color/btn3"
-        android:layout_width="80dp"
-        android:textColor="@android:color/white"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="START"
-        android:textSize="17sp"/>
-
+    <!-- <TextView -->
+    <!--     android:background="@color/btn3" -->
+    <!--     android:id="@+id/tv_snake_start" -->
+    <!--     android:layout_width="80dp" -->
+    <!--     android:textColor="@android:color/white" -->
+    <!--     android:layout_height="match_parent" -->
+    <!--     android:gravity="center" -->
+    <!--     android:text="START" -->
+    <!--     android:textSize="17sp"/>         -->
     <Button
         android:id="@+id/btnLeft"
         android:layout_width="80dp"
@@ -90,7 +66,7 @@
         android:layout_marginLeft="15dp"
         android:background="@drawable/selector_btn_submit"
         android:text="Left"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -102,25 +78,29 @@
           android:layout_height="60dp"
           android:background="@drawable/selector_btn_submit"
           android:text="Up"
-          android:textColor="@android:color/white"/>
+          android:textColor="@android:color/white"
+          tools:layout_editor_absoluteX="150dp"
+          tools:layout_editor_absoluteY="603dp" />
       <Button
           android:id="@+id/btnDown"
           android:layout_width="80dp"
           android:layout_height="60dp"
-          android:layout_marginBottom="5dp"
           android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
           android:background="@drawable/selector_btn_submit"
           android:text="Down"
-          android:textColor="@android:color/white"/>
+          android:textColor="@android:color/white" />
     </LinearLayout>
+
     <Button
         android:id="@+id/btnRight"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginLeft="10dp"
         android:background="@drawable/selector_btn_submit"
         android:text="Right"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="230dp"
+        tools:layout_editor_absoluteY="603dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -137,15 +117,15 @@
           android:text="0"
           android:textSize="17sp"/>
       <TextView
-          android:id="@+id/tvScore"
           android:background="@color/btn3"
+          android:id="@+id/tvScore"
           android:layout_width="80dp"
           android:textColor="@android:color/white"
-          android:layout_height="match_parent"
+          android:layout_height="wrap_content"
           android:gravity="center"
-          android:text="SCORE:"
+          android:text="SCORE"
           android:textSize="17sp"/>
     </LinearLayout>
   </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!-- </layout> -->

@@ -11,9 +11,6 @@ import com.me.snake.viewModel.Dir
 import com.me.snake.viewModel.GameState
 
 import com.me.snake.viewModel.SnakeViewModel
-
-//import kotlinx.android.synthetic.main.activity_main.*
-
 // import com.me.snake.databinding.ActivityMainBinding // 应该还不是viewbinding，仍然是databinding
 
 // 需要加一个得分：使用databinding得到双向数据绑定，吃了7粒小球，得7分
@@ -31,25 +28,23 @@ class MainActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_main) // 这是古老的旧版方法:
 
-        // binding = ActivityMainBinding.inflate(getLayoutInflater())
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // 我希望在这里把背景的方格画好，然后就不用每次每桢再画了
+ 
+        // 我希望在这里把背景的方格画好，然后就不用每次每桢再画了：背景画不画再说吧
 
         viewModel = ViewModelProvider(this).get(SnakeViewModel::class.java)
         viewModel.snake.observe(this, Observer {
                                     binding.game.snakeBody = it
-                                    binding.game.invalidate()
+                                    binding.game.invalidate() // invalidate()只能在UI线程操作。但是从重绘速率讲：invalidate()效率高
         })
         viewModel.fpos.observe(this, Observer {
                                    binding.game.updateBonus(it)
         })
         viewModel.scoreData.observe(this, Observer {
                                         binding.score.setText(it.toString())
-        })
+        }) 
         viewModel.gameState.observe(this, Observer {
                                         if (it == GameState.GAMEOVER) {
                                             AlertDialog.Builder(this).setTitle("Game Over").setMessage("GAME OVER")
