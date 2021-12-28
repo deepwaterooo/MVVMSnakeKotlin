@@ -17,7 +17,7 @@ import com.me.snake.viewModel.SnakeViewModel
 // * Class for: 游戏的顶层布局: 底层？基层 base层
  // class GameView : View {
  */
-class GameView (context: Context, attrs: AttributeSet) : View (context, attrs) { // GameView
+class GameView (context: Context, attrs: AttributeSet) : View (context, attrs) { // GameView: snake
 
     private val paintFood: Paint = Paint().apply { color = Color.RED } // 食物用红色画笔
     private val paint: Paint = Paint().apply { color = Color.BLUE }    // 食物用红色画笔

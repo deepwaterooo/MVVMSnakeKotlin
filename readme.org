@@ -8,7 +8,10 @@
 - So far, only configured project environment ready, game flow not working, barely working yet. 
 - so far, only viewBinding used, but to make it through, may apply databinding if needed.
 - But will work on these bugs to make it a small tiny game.
-- Major game flow bug fixed, game is playable with minor bugs. I have not realized the project (code basis) is pretty much inside the vedio, only that even when typing following his vedio, I made significant!!! typing errors, and make a person who had not understood MVVM clear though it would be major bug. But actually after fixed the typing errors, except the author has used kotlin android extension synthetic plugins, and I use view-binding, no other issues. 
+- Major game flow bug fixed, game is playable with minor bugs. I have not realized the project (code basis) is pretty much inside the vedio, only that even when typing following his vedio, I made significant!!! typing errors, and make a person who had not understood MVVM clear think it would be some major component missing. But actually after fixed the typing errors, except the author has used kotlin android extension synthetic plugins, and I use view-binding, no other issues. 
 - Up to this point, I have learned this MVVM kotlin "databinding" through a hard way (significant typing errors!). But during the process of fixing bugs, I did lean and understand the concepts better now. 
 - Will fix the rest noticable bugs, and clean it up.
 - only MainActivity.kt SnakeViewMode.kt GameView.kt and activity_main.xml has been used. others are other references to learn. 
+  
+[[./snake.png]]
+

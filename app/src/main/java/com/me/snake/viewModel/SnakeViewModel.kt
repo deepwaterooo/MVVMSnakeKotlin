@@ -9,7 +9,8 @@ class SnakeViewModel : ViewModel () {
     private val body = mutableListOf<Pos>()
     private val size = 20
     private var score = 0
-    private var food: Pos? = null // bonus 
+    // private var food: Pos? = null // bonus 
+    private var food: Pos? = Pos(5, 5) // bonus: 不希望出现食物为空的情况 
     private var dir = Dir.LEFT
 
     var snake = MutableLiveData<List<Pos>>() // snake body List<pos>
@@ -44,8 +45,6 @@ class SnakeViewModel : ViewModel () {
                 }
             }
             body.add(0, pos)
-            println(pos.i)
-            println(pos.j)
             if (pos != food) body.removeLast() 
             else {
                 food = nextFood().also {
